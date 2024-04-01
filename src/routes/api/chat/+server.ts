@@ -29,7 +29,8 @@ async function fetchStockPrice(symbol: string): Promise<string> {
     const data = await response.json();
     console.log(`Fetched stock data: ${JSON.stringify(data.ticker_info.currentPrice)}`);
 
-    return `The current price of ${symbol} is $${data.ticker_info.currentPrice}`;
+    // return `The current price of ${symbol} is $${data.ticker_info.currentPrice}`;
+    return `Here is all the most current stock information for ${symbol}: $${JSON.stringify(data.ticker_info)}`;
   } catch (error) {
     console.error('Error fetching stock price:', error);
     return `I couldn't retrieve the stock price for ${symbol}.`;
