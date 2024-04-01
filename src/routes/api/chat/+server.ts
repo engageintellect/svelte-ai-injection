@@ -14,7 +14,7 @@ const openai = new OpenAI({
 
 // A simple function to detect stock price queries and extract the ticker symbol
 function detectStockQuery(message: string): string | null {
-  const pattern = /price of (\w+)/i;
+  const pattern = /{(\w+)}/i;
   const match = message.match(pattern);
   if (match) {
     console.log(`Detected stock price query for: ${match[1].toUpperCase()}`);
