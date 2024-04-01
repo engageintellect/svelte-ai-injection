@@ -1,4 +1,4 @@
-# svelte-ai
+# svelte-ai-injection
 
 Everything you need to build a Svelte project with Vercel's AI SDK, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
 
