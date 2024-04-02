@@ -60,7 +60,7 @@
 	{#if $messages.length === 0}
 		<div
 			out:slide={{ delay: 0, duration: 500 }}
-			class="flex flex-grow items-center justify-center p-5 pb-28"
+			class="flex flex-grow items-center justify-center p-5 pb-28 pt-10"
 		>
 			<div class="flex flex-col gap-5">
 				<div class="flex flex-col items-center gap-10 sm:flex-row">
