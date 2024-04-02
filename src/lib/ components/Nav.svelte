@@ -75,7 +75,7 @@
 
 			<div class="dropdown dropdown-end">
 				<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost">
-					<div class="w-10 rounded-full">
+					<div class="w-10 rounded-full border border-primary">
 						<img
 							alt="Tailwind CSS Navbar component"
 							src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"

@@ -3,6 +3,7 @@
 	import { useChat } from 'ai/svelte';
 	import { slide, fade } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
+	import robotImage from '$lib/images/robot14-nobg.png';
 
 	import { getFormattedDateTime } from '$lib/utils';
 
@@ -13,7 +14,7 @@
 
 	let welcomeMessage = {
 		id: 0,
-		mainTitle: 'Hello! I am an AI assistant.',
+		mainTitle: 'Hello! I am StonkBot.',
 		mainHeading:
 			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few special features as I have access to real-time, third-party APIs that can provide the latest information on stocks and finance.	',
 		title2: 'Finance Chat',
@@ -62,12 +63,19 @@
 			class="flex flex-grow items-center justify-center p-5 pb-28"
 		>
 			<div out:fade={{ delay: 0, duration: 500 }} class="flex flex-col gap-5">
-				<div class="gap2 flex flex-col">
-					<div class="text-3xl">{welcomeMessage.mainTitle}</div>
-					<div class="font-thin">{welcomeMessage.mainHeading}</div>
+				<div class="flex flex-col items-center gap-10 sm:flex-row">
+					<img
+						src={robotImage}
+						alt="Chat avatar"
+						class="mx-auto w-48 rounded-full border border-primary bg-primary shadow"
+					/>
+					<div class="gap2 flex flex-col">
+						<div class="text-3xl">{welcomeMessage.mainTitle}</div>
+						<div class="font-thin">{welcomeMessage.mainHeading}</div>
+					</div>
 				</div>
 
-				<div class="gap2 flex flex-col">
+				<div class="gap2 flex flex-col py-10">
 					<div class="text-3xl">{welcomeMessage.title2}</div>
 					<div class="font-thin">{welcomeMessage.heading2}</div>
 
@@ -111,10 +119,13 @@
 			{#each $messages as message (message.id)}
 				<div class={message.role === 'assistant' ? 'chat chat-start' : 'chat chat-end'}>
 					<div class="avatar chat-image">
-						<div class="w-10 rounded-full">
+						<div class="w-10 rounded-full border border-primary">
 							<img
 								alt="Chat avatar"
-								src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+								class={message.role != 'assistant' ? '' : 'scale-x-[-1]'}
+								src={message.role != 'assistant'
+									? 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
+									: robotImage}
 							/>
 						</div>
 					</div>
@@ -140,7 +151,6 @@
 <form on:submit={handleSubmit} class="fixed bottom-0 mx-auto w-full bg-base-300 px-4 py-4">
 	<div class="mx-auto flex max-w-3xl items-center gap-2">
 		<input
-			autofocus
 			type="text"
 			placeholder="Ask something..."
 			class="input input-bordered w-full focus:outline-none"
