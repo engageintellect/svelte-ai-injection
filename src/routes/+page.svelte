@@ -92,7 +92,7 @@
 					<div class="text-3xl">Contribute:</div>
 					<div>
 						To contribute to this project, please submit a pull request to the <a
-							class="text-primary"
+							class="text-primary underline"
 							href={githubRepo}>GitHub Repository</a
 						>.
 					</div>
