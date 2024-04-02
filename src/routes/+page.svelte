@@ -17,14 +17,14 @@
 		mainTitle: 'Hello, I am StonkBot.',
 		mainHeading:
 			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few features of my own, as I have access to real-time, third-party APIs that can provide the latest information on stocks, financial analysis, sentiment, and more. Feel free to ask me anything!',
-		title2: 'Finance Chat',
+		title2: `Let's get started.`,
 		heading2:
-			'If you would like to ask a question about a specific stock ticker, be sure to reference the ticker inside of curly brackets in your question. For example:',
+			'If you would like to ask a question about a specific stock ticker, be sure to reference the ticker inside of curly brackets in within the context of your question. For example:',
 		examples: [
 			'"What is the current price of {AAPL}?"',
-			'"What is {META} short float percentage at?"',
 			'"What is the market cap of {COIN}?"',
-			'"What is the current volume of {F}?"'
+			'"What is the current volume of {F}?"',
+			'"Based on all the data of {META}, does anything stand out to you, and what is the sentiment? "'
 		],
 
 		title3: 'hello world',
@@ -62,7 +62,7 @@
 			out:slide={{ delay: 0, duration: 500 }}
 			class="flex flex-grow items-center justify-center p-5 pb-28"
 		>
-			<div out:fade={{ delay: 0, duration: 500 }} class="flex flex-col gap-5">
+			<div class="flex flex-col gap-5">
 				<div class="flex flex-col items-center gap-10 sm:flex-row">
 					<img
 						src={robotImage}
@@ -83,7 +83,7 @@
 
 					<ul class="chat chat-end flex w-full flex-col gap-2 px-5 text-primary">
 						{#each welcomeMessage.examples as example}
-							<li class="chat-bubble">
+							<li class="chat-bubble w-full">
 								{example}
 							</li>
 						{/each}
@@ -104,7 +104,7 @@
 					<table class="table">
 						<!-- head -->
 						<thead>
-							<tr>
+							<tr class="border-b border-neutral">
 								<th>Technology</th>
 								<th>Use</th>
 							</tr>
@@ -124,7 +124,7 @@
 							</tr>
 							<tr>
 								<td class="text-primary">YFinance</td>
-								<td>Stock & Financial Data via Private API.</td>
+								<td>Stock & Financial Data via Private VPS API.</td>
 							</tr>
 							<tr>
 								<td class="text-primary">TailwindCSS</td>
