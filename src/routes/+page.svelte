@@ -44,6 +44,9 @@
 
 	function clearMessages() {
 		$messages = [];
+		// TODO: This is a hack to force a re-render. Find a better way to do this.
+		// window.location.reload();
+		// window.scrollTo(0, 0);
 	}
 </script>
 
@@ -89,7 +92,7 @@
 			</div>
 		</div>
 	{:else}
-		<div class="sticky top-[68px] z-10 p-2">
+		<div in:fade={{ delay: 0, duration: 1000 }} class="sticky top-[68px] z-10 p-2">
 			<div in:fade={{ delay: 0, duration: 500 }} class="inline-block">
 				<button on:click={clearMessages} class="btn flex items-center justify-center bg-base-300">
 					Clear Chat
