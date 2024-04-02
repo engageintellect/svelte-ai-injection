@@ -91,7 +91,7 @@
 				</div>
 
 				<div class="">
-					<div class="text-3xl">Contribute</div>
+					<div class="text-3xl">Contribute.</div>
 					<div>
 						To contribute to this project, please submit a pull request to the <a
 							class="text-primary underline"
