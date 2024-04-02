@@ -39,10 +39,20 @@ async function fetchStockPrice(symbol: string): Promise<string> {
 
 
 export const POST: RequestHandler = async ({ request }) => {
-  const { messages }: { messages: ChatMessage[] } = await request.json();
-  const lastUserMessage = messages[messages.length - 1].content;
+  let { messages }: { messages: ChatMessage[] } = await request.json();
 
+  // Define an initial instruction for ChatGPT
+  const initialInstruction: ChatMessage = {
+    role: 'system',
+    content: 'You are a helpful AI assistant. All of your responses should be written using plain HTML and minimal TailwindCSS styling for lists, tables, h1-h6 headings, and other standard html elements. No colors.',
+  };
+
+  // Insert the initial instruction at the beginning of the conversation
+  messages = [initialInstruction, ...messages];
+
+  const lastUserMessage = messages[messages.length - 1].content;
   const symbol = detectStockQuery(lastUserMessage);
+
   if (symbol) {
     const stockMessage = await fetchStockPrice(symbol);
 
@@ -52,16 +62,15 @@ export const POST: RequestHandler = async ({ request }) => {
       content: stockMessage,
     });
 
-    // Add the stock message as system-generated information
-    // TODO: This could be cleaner, but it works way better than not reiterating the context  
+    // Add a reiteration for clarity if needed
     messages.push({
       role: 'system',
       content: `To reiterate, ${stockMessage}`,
     });
-
   }
 
   console.log(JSON.stringify(messages, null, 2));
+
   const response = await openai.chat.completions.create({
     model: 'gpt-3.5-turbo',
     stream: true,

@@ -192,7 +192,8 @@
 							? 'chat-bubble bg-primary text-primary-content'
 							: 'chat-bubble'}
 					>
-						{message.content}
+						<!-- {JSON.stringify(message.content)} -->
+						{@html message.content}
 					</div>
 					<div class="chat-footer opacity-50">Delivered</div>
 				</div>
