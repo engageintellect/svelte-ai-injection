@@ -59,7 +59,7 @@
 	{#if $messages.length === 0}
 		<div
 			out:slide={{ delay: 0, duration: 500 }}
-			class="flex flex-grow items-center justify-center p-5"
+			class="flex flex-grow items-center justify-center p-5 pb-28"
 		>
 			<div out:fade={{ delay: 0, duration: 500 }} class="flex flex-col gap-5">
 				<div class="gap2 flex flex-col">
@@ -107,7 +107,7 @@
 			</div>
 		</div>
 
-		<div class="flex-grow overflow-auto p-2 pb-20">
+		<div class="flex-grow overflow-auto p-2 pb-28">
 			{#each $messages as message (message.id)}
 				<div class={message.role === 'assistant' ? 'chat chat-start' : 'chat chat-end'}>
 					<div class="avatar chat-image">
