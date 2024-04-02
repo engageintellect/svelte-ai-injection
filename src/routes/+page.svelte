@@ -11,7 +11,8 @@
 	let welcomeMessage = {
 		id: 0,
 		title: 'Hello! I am an AI assistant.',
-		heading: 'Hello! I am an AI assistant. How can I help you today?'
+		heading:
+			'Ask me anything! If you would like to ask a question about stocks of finance, be sure to include the ticker inside of curly brackets. For example, "What is the current short float of {AAPL}?"'
 	};
 
 	onMount(() => {
@@ -36,16 +37,16 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<div class="flex flex-col w-full max-w-3xl mx-auto">
+<div class="mx-auto flex w-full max-w-3xl flex-col">
 	{#if $messages.length === 0}
 		<div
 			out:slide={{ delay: 0, duration: 500 }}
 			in:fade={{ delay: 0, duration: 1500 }}
-			class="flex-grow flex items-center justify-center p-5 py-10"
+			class="flex flex-grow items-center justify-center p-5 py-10"
 		>
-			<div out:fade={{ delay: 0, duration: 1500 }} class="">
+			<div out:fade={{ delay: 0, duration: 1500 }} class="flex flex-col gap-2">
 				<div class="text-3xl">{welcomeMessage.title}</div>
-				<div class="text-xl font-thin">{welcomeMessage.heading}</div>
+				<div class="font-thin">{welcomeMessage.heading}</div>
 			</div>
 		</div>
 	{:else}
@@ -53,15 +54,15 @@
 			<div in:fade={{ delay: 0, duration: 500 }} class="inline-block">
 				<button on:click={clearMessages} class="btn flex items-center justify-center">
 					Clear Chat
-					<Icon icon="ri-close-circle-fill" class="w-7 h-7 text-error ml-2" />
+					<Icon icon="ri-close-circle-fill" class="ml-2 h-7 w-7 text-error" />
 				</button>
 			</div>
 		</div>
 
-		<div class="flex-grow overflow-auto pb-20 p-2">
+		<div class="flex-grow overflow-auto p-2 pb-20">
 			{#each $messages as message (message.id)}
 				<div class={message.role === 'assistant' ? 'chat chat-start' : 'chat chat-end'}>
-					<div class="chat-image avatar">
+					<div class="avatar chat-image">
 						<div class="w-10 rounded-full">
 							<img
 								alt="Chat avatar"
@@ -87,18 +88,18 @@
 		</div>
 	{/if}
 </div>
-<form on:submit={handleSubmit} class="fixed w-full mx-auto bottom-0 bg-base-300 py-4 px-4">
-	<div class="flex gap-2 items-center max-w-3xl mx-auto">
+<form on:submit={handleSubmit} class="fixed bottom-0 mx-auto w-full bg-base-300 px-4 py-4">
+	<div class="mx-auto flex max-w-3xl items-center gap-2">
 		<input
 			autofocus
 			type="text"
 			placeholder="Ask something"
-			class="input w-full input-bordered focus:outline-none"
+			class="input input-bordered w-full focus:outline-none"
 			bind:value={$input}
 		/>
 		<button type="submit" class="btn btn-primary flex items-center">
 			<div>Send</div>
-			<Icon icon="ri-send-plane-fill" class="w-7 h-7" />
+			<Icon icon="ri-send-plane-fill" class="h-7 w-7" />
 		</button>
 	</div>
 </form>
