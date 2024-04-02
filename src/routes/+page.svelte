@@ -59,7 +59,7 @@
 	{#if $messages.length === 0}
 		<div
 			out:slide={{ delay: 0, duration: 500 }}
-			class="flex flex-grow items-center justify-center p-5 py-10 pb-20"
+			class="flex flex-grow items-center justify-center p-5"
 		>
 			<div out:fade={{ delay: 0, duration: 500 }} class="flex flex-col gap-5">
 				<div class="gap2 flex flex-col">
@@ -80,7 +80,7 @@
 					</ul>
 				</div>
 
-				<div class="py-10">
+				<div class="">
 					<div class="text-3xl">Contribute:</div>
 					<div>
 						To contribute to this project, please submit a pull request to the <a
@@ -92,11 +92,17 @@
 			</div>
 		</div>
 	{:else}
-		<div in:fade={{ delay: 0, duration: 1000 }} class="sticky top-[68px] z-10 p-2">
-			<div in:fade={{ delay: 0, duration: 500 }} class="inline-block">
-				<button on:click={clearMessages} class="btn flex items-center justify-center bg-base-300">
+		<div in:fade={{ delay: 0, duration: 500 }} class="sticky top-[66px] z-10 p-2">
+			<div class="inline-block">
+				<button
+					on:click={clearMessages}
+					class="group btn flex items-center justify-center bg-base-300"
+				>
 					Clear Chat
-					<Icon icon="ri-close-circle-fill" class="ml-2 h-7 w-7 text-error" />
+					<Icon
+						icon="ri-close-circle-fill"
+						class="ml-2 h-7 w-7 text-error transition-all duration-300 sm:group-hover:scale-105"
+					/>
 				</button>
 			</div>
 		</div>
@@ -130,12 +136,13 @@
 		</div>
 	{/if}
 </div>
+
 <form on:submit={handleSubmit} class="fixed bottom-0 mx-auto w-full bg-base-300 px-4 py-4">
 	<div class="mx-auto flex max-w-3xl items-center gap-2">
 		<input
 			autofocus
 			type="text"
-			placeholder="Ask something"
+			placeholder="Ask something..."
 			class="input input-bordered w-full focus:outline-none"
 			bind:value={$input}
 		/>
