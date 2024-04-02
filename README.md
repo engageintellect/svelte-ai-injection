@@ -8,7 +8,7 @@ If you're seeing this, you've probably already done this step. Congrats!
 
 ```bash
 # create a new project in the current directory
-git clone https://github.com/engageintellect/svelte-ai.git
+git clone https://github.com/engageintellect/svelte-ai-injection.git
 
 ```
 
@@ -16,7 +16,11 @@ git clone https://github.com/engageintellect/svelte-ai.git
 ```bash
 /.env.local
 
+# OpenAI API Key
 OPENAI_API_KEY=sk-<your-api-key>
+
+# Yahoo Finance API Key (I use an endpoint on my own server to avoid CORS issues)
+YFINANCE_ENDPIONT=https://apidojo-yahoo-finance-v1.p.rapidapi.com
 ```
 
 ## Developing
