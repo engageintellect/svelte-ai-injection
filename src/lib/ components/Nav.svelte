@@ -1,11 +1,8 @@
 <script lang="ts">
 	import daisyuiColors from 'daisyui/src/theming/themes';
-	// import StockMarket from 'virtual:icons/icon-park-solid/stock-market';
 	import Icon from '@iconify/svelte';
-	// import ThemeIcon from 'virtual:icons/gridicons/themes';
 	import { selectedTheme } from '$lib/store';
 	import { onMount } from 'svelte';
-	// import ThemeIcon from 'virtual:mdi/theme-light-dark';
 
 	let themes = Object.keys(daisyuiColors);
 
@@ -27,12 +24,12 @@
 	}
 </script>
 
-<div class="shadow sticky top-0 -z-[-1] bg-base-300">
-	<div class="navbar bg-base-300 flex justify-between gap-2 max-w-3xl mx-auto">
+<div class="sticky top-0 -z-[-1] bg-base-300 shadow">
+	<div class="navbar mx-auto flex max-w-3xl justify-between gap-2 bg-base-300">
 		<div class="">
-			<a href="/" class="btn btn-outline btn-primary text-xl flex items-center">
+			<a href="/" class="btn btn-primary flex items-center text-xl">
 				<div>ChatAI</div>
-				<Icon icon="lucide-brain" class="w-7 h-7" />
+				<Icon icon="lucide-brain" class="h-7 w-7" />
 			</a>
 		</div>
 
@@ -51,22 +48,22 @@
 				<div tabindex="0" role="button" class="">
 					<!-- Add dropdown icon here -->
 					<div class="btn btn-ghost flex items-center gap-2">
-						<div class="lowercase font-normal">
-							<Icon icon="gridicons-themes" class="w-7 h-7" />
+						<div class="font-normal lowercase">
+							<Icon icon="gridicons-themes" class="h-7 w-7" />
 						</div>
 						<!-- <ThemeIcon class="h-7 w-7" /> -->
 					</div>
 				</div>
 				<ul
 					tabindex="-1"
-					class="mt-3 dropdown-content bg-base-100 border-primary rounded-box dropdown-end -z-[-1] h-96 w-52 overflow-auto border p-2 shadow"
+					class="dropdown-content dropdown-end -z-[-1] mt-3 h-96 w-52 overflow-auto rounded-box border border-primary bg-base-100 p-2 shadow"
 				>
 					{#each themes.sort() as theme}
 						<li>
 							<input
 								type="radio"
 								name="theme-dropdown"
-								class="theme-controller btn btn-sm btn-block btn-ghost font-thin justify-start"
+								class="theme-controller btn btn-ghost btn-sm btn-block justify-start font-thin"
 								aria-label={theme}
 								value={theme}
 								on:change={handleThemeChange}
@@ -77,7 +74,7 @@
 			</div>
 
 			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+				<div tabindex="0" role="button" class="avatar btn btn-circle btn-ghost">
 					<div class="w-10 rounded-full">
 						<img
 							alt="Tailwind CSS Navbar component"
@@ -87,7 +84,7 @@
 				</div>
 
 				<ul
-					class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content border border-primary bg-base-100 rounded-box w-52"
+					class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box border border-primary bg-base-100 p-2 shadow"
 				>
 					<li>
 						<a href="/" class="justify-between">

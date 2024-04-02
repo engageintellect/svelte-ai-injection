@@ -66,7 +66,7 @@
 					<div class="text-3xl">{welcomeMessage.title2}</div>
 					<div class="font-thin">{welcomeMessage.heading2}</div>
 
-					<ul class="chat chat-end flex flex-col gap-2 py-2 text-primary">
+					<ul class="chat chat-end flex flex-col gap-2 py-5 text-primary">
 						{#each welcomeMessage.examples as example}
 							<li class="chat-bubble">
 								{example}
@@ -89,7 +89,7 @@
 	{:else}
 		<div class="sticky top-[68px] z-10 p-2">
 			<div in:fade={{ delay: 0, duration: 500 }} class="inline-block">
-				<button on:click={clearMessages} class="btn flex items-center justify-center">
+				<button on:click={clearMessages} class="btn flex items-center justify-center bg-base-300">
 					Clear Chat
 					<Icon icon="ri-close-circle-fill" class="ml-2 h-7 w-7 text-error" />
 				</button>
