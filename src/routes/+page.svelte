@@ -4,6 +4,8 @@
 	import { slide, fade } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 
+	import { getFormattedDateTime } from '$lib/utils';
+
 	const { input, handleSubmit, messages } = useChat();
 	let messagesEnd: HTMLElement;
 
@@ -107,9 +109,9 @@
 							/>
 						</div>
 					</div>
-					<div class="chat-header capitalize">
+					<div class="chat-header flex items-center gap-2 capitalize">
 						{message.role}
-						<time class="text-xs opacity-50">12:45</time>
+						<time class="text-xs opacity-50">{getFormattedDateTime()}</time>
 					</div>
 					<div
 						class={message.role === 'assistant'
