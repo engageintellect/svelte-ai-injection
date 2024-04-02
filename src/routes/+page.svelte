@@ -14,9 +14,9 @@
 
 	let welcomeMessage = {
 		id: 0,
-		mainTitle: 'Hello! I am StonkBot.',
+		mainTitle: 'Hello, I am StonkBot.',
 		mainHeading:
-			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few special features as I have access to real-time, third-party APIs that can provide the latest information on stocks and finance.	',
+			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few features of my own, as I have access to real-time, third-party APIs that can provide the latest information on stocks, financial analysis, sentiment, and more. Feel free to ask me anything!',
 		title2: 'Finance Chat',
 		heading2:
 			'If you would like to ask a question about a specific stock ticker, be sure to reference the ticker inside of curly brackets in your question. For example:',
@@ -75,11 +75,13 @@
 					</div>
 				</div>
 
-				<div class="gap2 flex flex-col py-10">
-					<div class="text-3xl">{welcomeMessage.title2}</div>
-					<div class="font-thin">{welcomeMessage.heading2}</div>
+				<div class="flex w-full flex-col gap-2 py-10 sm:flex-row sm:items-center">
+					<div class="flex flex-col">
+						<div class=" text-3xl">{welcomeMessage.title2}</div>
+						<div class=" font-thin">{welcomeMessage.heading2}</div>
+					</div>
 
-					<ul class="chat chat-end flex flex-col gap-2 p-5 text-primary">
+					<ul class="chat chat-end flex w-full flex-col gap-2 px-5 text-primary">
 						{#each welcomeMessage.examples as example}
 							<li class="chat-bubble">
 								{example}
@@ -89,13 +91,51 @@
 				</div>
 
 				<div class="">
-					<div class="text-3xl">Contribute:</div>
+					<div class="text-3xl">Contribute</div>
 					<div>
 						To contribute to this project, please submit a pull request to the <a
 							class="text-primary underline"
 							href={githubRepo}>GitHub Repository</a
 						>.
 					</div>
+				</div>
+
+				<div class="overflow-x-auto">
+					<table class="table">
+						<!-- head -->
+						<thead>
+							<tr>
+								<th>Technology</th>
+								<th>Use</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="text-primary">Sveltekit</td>
+								<td>Client & Server Framework</td>
+							</tr>
+							<tr>
+								<td class="text-primary">Vercel AI SDK</td>
+								<td>Friendly APIs for streaming OpenAI data.</td>
+							</tr>
+							<tr>
+								<td class="text-primary">OpenAI</td>
+								<td>gpt3.5-turbo & gpt4</td>
+							</tr>
+							<tr>
+								<td class="text-primary">YFinance</td>
+								<td>Stock & Financial Data via Private API.</td>
+							</tr>
+							<tr>
+								<td class="text-primary">TailwindCSS</td>
+								<td>Utility-based CSS framework.</td>
+							</tr>
+							<tr>
+								<td class="text-primary">DaisyUI</td>
+								<td>Tailwind Component Library.</td>
+							</tr>
+						</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
