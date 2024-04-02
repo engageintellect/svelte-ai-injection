@@ -2,17 +2,30 @@
 	import { onMount } from 'svelte';
 	import { useChat } from 'ai/svelte';
 	import { slide, fade } from 'svelte/transition';
-
 	import Icon from '@iconify/svelte';
+
+	let githubRepo = 'https://github.com/engageintellect/svelte-ai-injection';
 
 	const { input, handleSubmit, messages } = useChat();
 	let messagesEnd: HTMLElement;
 
 	let welcomeMessage = {
 		id: 0,
-		title: 'Hello! I am an AI assistant.',
-		heading:
-			'Ask me anything! If you would like to ask a question about stocks of finance, be sure to include the ticker inside of curly brackets. For example, "What is the current short float of {AAPL}?"'
+		mainTitle: 'Hello! I am an AI assistant.',
+		mainHeading:
+			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few special features as I have access to real-time APIs that can provide you with the latest information on stocks and finance.	',
+		title2: 'Finance Chat',
+		heading2:
+			'If you would like to ask a question about stocks of finance, be sure to include the ticker inside of curly brackets. For example:',
+		examples: [
+			'"What is the current price of {AAPL}?"',
+			'"What is the current short float of {AAPL}?"',
+			'"What is the current market cap of {AAPL}?"',
+			'"What is the current volume of {AAPL}?"'
+		],
+
+		title3: 'hello world',
+		heading3: 'hello world'
 	};
 
 	onMount(() => {
@@ -41,12 +54,36 @@
 	{#if $messages.length === 0}
 		<div
 			out:slide={{ delay: 0, duration: 500 }}
-			in:fade={{ delay: 0, duration: 1500 }}
 			class="flex flex-grow items-center justify-center p-5 py-10"
 		>
-			<div out:fade={{ delay: 0, duration: 1500 }} class="flex flex-col gap-2">
-				<div class="text-3xl">{welcomeMessage.title}</div>
-				<div class="font-thin">{welcomeMessage.heading}</div>
+			<div out:fade={{ delay: 0, duration: 1500 }} class="flex flex-col gap-5">
+				<div class="gap2 flex flex-col">
+					<div class="text-3xl">{welcomeMessage.mainTitle}</div>
+					<div class="font-thin">{welcomeMessage.mainHeading}</div>
+				</div>
+
+				<div class="gap2 flex flex-col">
+					<div class="text-3xl">{welcomeMessage.title2}</div>
+					<div class="font-thin">{welcomeMessage.heading2}</div>
+
+					<ul class="chat chat-end flex flex-col gap-2 py-2 text-primary">
+						{#each welcomeMessage.examples as example}
+							<li class="chat-bubble">
+								{example}
+							</li>
+						{/each}
+					</ul>
+				</div>
+
+				<div class="py-10">
+					<div class="text-3xl">Contribute:</div>
+					<div>
+						To contribute to this project, please submit a pull request to the <a
+							class="text-primary"
+							href={githubRepo}>GitHub Repository</a
+						>.
+					</div>
+				</div>
 			</div>
 		</div>
 	{:else}
