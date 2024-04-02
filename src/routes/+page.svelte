@@ -15,7 +15,7 @@
 		id: 0,
 		mainTitle: 'Hello! I am an AI assistant.',
 		mainHeading:
-			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few special features as I have access to real-time APIs that can provide you with the latest information on stocks and finance.	',
+			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few special features as I have access to real-time, third-party APIs that can provide the latest information on stocks and finance.	',
 		title2: 'Finance Chat',
 		heading2:
 			'If you would like to ask a question about a specific stock ticker, be sure to reference the ticker inside of curly brackets in your question. For example:',
@@ -68,7 +68,7 @@
 					<div class="text-3xl">{welcomeMessage.title2}</div>
 					<div class="font-thin">{welcomeMessage.heading2}</div>
 
-					<ul class="chat chat-end flex flex-col gap-2 py-5 text-primary">
+					<ul class="chat chat-end flex flex-col gap-2 p-5 text-primary">
 						{#each welcomeMessage.examples as example}
 							<li class="chat-bubble">
 								{example}
