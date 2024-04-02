@@ -137,6 +137,20 @@
 						</tbody>
 					</table>
 				</div>
+
+				<div class="flex items-center justify-center gap-1 pt-5 text-sm">
+					<div>Made with</div>
+
+					<div>
+						<Icon icon="ri-heart-fill" class="" />
+					</div>
+
+					<div>
+						by <a class="text-primary underline" href="https://github.com/engageintellect"
+							>@engageintellect</a
+						>
+					</div>
+				</div>
 			</div>
 		</div>
 	{:else}
@@ -196,9 +210,9 @@
 			class="input input-bordered w-full focus:outline-none"
 			bind:value={$input}
 		/>
-		<button type="submit" class="btn btn-primary flex items-center">
+		<button type="submit" class="group btn btn-primary flex items-center">
 			<div>Send</div>
-			<Icon icon="ri-send-plane-fill" class="h-7 w-7" />
+			<Icon icon="ri-send-plane-fill" class="h-7 w-7 sm:group-hover:animate-pulse" />
 		</button>
 	</div>
 </form>

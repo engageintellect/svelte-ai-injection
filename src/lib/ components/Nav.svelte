@@ -28,8 +28,11 @@
 	<div class="navbar mx-auto flex max-w-3xl justify-between gap-2 bg-base-300">
 		<div class="">
 			<a href="/" class="btn btn-primary flex items-center text-xl">
-				<div>ChatAI</div>
 				<Icon icon="lucide-brain" class="h-7 w-7" />
+				<div class="flex items-start gap-1">
+					<div>StonkBot</div>
+					<div class="text-xs">beta</div>
+				</div>
 			</a>
 		</div>
 
