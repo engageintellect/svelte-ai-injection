@@ -56,9 +56,9 @@
 	{#if $messages.length === 0}
 		<div
 			out:slide={{ delay: 0, duration: 500 }}
-			class="flex flex-grow items-center justify-center p-5 py-10"
+			class="flex flex-grow items-center justify-center p-5 py-10 pb-20"
 		>
-			<div out:fade={{ delay: 0, duration: 1500 }} class="flex flex-col gap-5">
+			<div out:fade={{ delay: 0, duration: 500 }} class="flex flex-col gap-5">
 				<div class="gap2 flex flex-col">
 					<div class="text-3xl">{welcomeMessage.mainTitle}</div>
 					<div class="font-thin">{welcomeMessage.mainHeading}</div>
