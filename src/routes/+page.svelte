@@ -4,10 +4,10 @@
 	import { slide, fade } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 
-	let githubRepo = 'https://github.com/engageintellect/svelte-ai-injection';
-
 	const { input, handleSubmit, messages } = useChat();
 	let messagesEnd: HTMLElement;
+
+	let githubRepo = 'https://github.com/engageintellect/svelte-ai-injection';
 
 	let welcomeMessage = {
 		id: 0,
@@ -16,12 +16,12 @@
 			'If you have ever used chatGPT, you will feel right at home. Additionally, I have a few special features as I have access to real-time APIs that can provide you with the latest information on stocks and finance.	',
 		title2: 'Finance Chat',
 		heading2:
-			'If you would like to ask a question about stocks of finance, be sure to include the ticker inside of curly brackets. For example:',
+			'If you would like to ask a question about a specific stock ticker, be sure to reference the ticker inside of curly brackets in your question. For example:',
 		examples: [
 			'"What is the current price of {AAPL}?"',
-			'"What is the current short float of {AAPL}?"',
-			'"What is the current market cap of {AAPL}?"',
-			'"What is the current volume of {AAPL}?"'
+			'"What is {META} short float percentage at?"',
+			'"What is the market cap of {COIN}?"',
+			'"What is the current volume of {F}?"'
 		],
 
 		title3: 'hello world',
