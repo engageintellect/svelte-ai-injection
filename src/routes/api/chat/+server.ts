@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { OpenAIStream, StreamingTextResponse } from 'ai';
-import { OPENAI_API_KEY } from '$env/static/private';
+import { OPENAI_API_KEY, YFINANCE_ENDPONT } from '$env/static/private';
 import type { RequestHandler } from './$types';
 
 interface ChatMessage {
@@ -25,7 +25,7 @@ function detectStockQuery(message: string): string | null {
 
 async function fetchStockPrice(symbol: string): Promise<string> {
   try {
-    const response = await fetch(`https://engage-dev.com/stonkai/api/stock/${symbol}`);
+    const response = await fetch(`${YFINANCE_ENDPONT}/api/stock/${symbol}`);
     const data = await response.json();
     console.log(`Fetched stock data: ${JSON.stringify(data.ticker_info.currentPrice)}`);
 
