@@ -25,7 +25,7 @@ function detectStockQuery(message: string): string | null {
 
 async function fetchStockPrice(symbol: string): Promise<string> {
   try {
-    const response = await fetch(`https://engage-dev.com:8000/api/stock/${symbol}`);
+    const response = await fetch(`https://engage-dev.com/stonkai/api/stock/${symbol}`);
     const data = await response.json();
     console.log(`Fetched stock data: ${JSON.stringify(data.ticker_info.currentPrice)}`);
 
