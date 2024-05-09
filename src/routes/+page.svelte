@@ -4,6 +4,7 @@
 	import { slide, fade } from 'svelte/transition';
 	import Icon from '@iconify/svelte';
 	import robotImage from '$lib/images/robot14-nobg.png';
+	import defaultAvatar from '$lib/images/default-avatar.jpg';
 
 	import { getFormattedDateTime } from '$lib/utils';
 
@@ -177,9 +178,7 @@
 							<img
 								alt="Chat avatar"
 								class={message.role != 'assistant' ? '' : 'scale-x-[-1]'}
-								src={message.role != 'assistant'
-									? 'https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg'
-									: robotImage}
+								src={message.role != 'assistant' ? defaultAvatar : robotImage}
 							/>
 						</div>
 					</div>
